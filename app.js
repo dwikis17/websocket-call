@@ -15,7 +15,7 @@ wss.broadcast = (ws, data) => {
 
 wss.on('connection', (ws) => {
     console.log(`Client connected. Total connected clients: ${wss.clients.size}`)
-    
+
     ws.onmessage = (message) => {
         console.log(message.data + "\n");
         wss.broadcast(ws, message.data);
